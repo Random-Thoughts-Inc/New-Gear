@@ -7,6 +7,8 @@
 	<Import Project="BuildTools\ShaderCompiler\KBOFXCTask.targets" />
 
 	<PropertyGroup>
+		<AssemblyName>NewGear</AssemblyName>
+		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<!-- Fix 'processor architecture mismatch' warnings -->
@@ -22,8 +24,8 @@
 	<ItemGroup>
 		<!-- This wasn't expanding right for whatever reason. No time to figure this out. -->
 		<!-- <LocalizationFiles Include="Localization\**\*.hjson" /> -->
-		<LocalizationFiles Include="Localization\en-US\Mods.TerrariaOverhaul.hjson" />
-		<LocalizationFiles Include="Localization\en-US\Mods.TerrariaOverhaul.Configuration.hjson" />
+		<LocalizationFiles Include="Localization\en-US\Mods.NewGear.hjson" />
+		<LocalizationFiles Include="Localization\en-US\Mods.NewGear.Configuration.hjson" />
 
 		<Compile Remove="Old\**" />
 		<Compile Remove="lib\**" />
@@ -43,6 +45,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Assets\" />
+	  <Folder Include="Common\" />
 	</ItemGroup>
 
 	<!-- Generate localization statistics -->
