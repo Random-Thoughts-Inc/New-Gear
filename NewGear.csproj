@@ -10,6 +10,9 @@
 		<None Remove="Old\**" />
 	</ItemGroup>
 	<ItemGroup>
+	  <None Remove="dotnet-tools.json" />
+	</ItemGroup>
+	<ItemGroup>
 	  <PackageReference Include="AssGen" Version="3.0.1" />
 	  <PackageReference Include="tModLoader.CodeAssist" Version="0.1.5" />
 	</ItemGroup>
