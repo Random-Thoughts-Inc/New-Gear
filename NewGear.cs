@@ -2,7 +2,7 @@
 
 namespace NewGear
 {
-	public partial class NewGear : Mod
+    public partial class NewGear : Mod
 	{
 		public const string AssetPath = $"{nameof(NewGear)}/Assets/";
 
