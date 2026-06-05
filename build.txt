@@ -1,0 +1,8 @@
+﻿author = Dramora9879
+displayName = New Gear
+homePage = https://github.com/Random-Thoughts-Inc/New-Gear
+hideCode = false
+hideResources = false
+includeSource = true
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*, Old\*
+version = 0.0.01-Pre-Alpha

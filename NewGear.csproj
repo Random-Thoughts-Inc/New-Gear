@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\tModLoader.targets" />
+	<Import Project="BuildTools\BuildTools.targets" />
+	<!-- Shader compiler -->
+	<Import Project="BuildTools\ShaderCompiler\KBOFXCTask.props" />
+	<Import Project="BuildTools\ShaderCompiler\KBOFXCTask.targets" />
+
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<!-- Fix 'processor architecture mismatch' warnings -->
+		<ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+	</PropertyGroup>
+
+	<!-- References -->
+	<ItemGroup>
+		<Reference Include="Tomlyn" HintPath="lib/Tomlyn.dll" />
+	</ItemGroup>
+
+	<!-- Content -->
+	<ItemGroup>
+		<!-- This wasn't expanding right for whatever reason. No time to figure this out. -->
+		<!-- <LocalizationFiles Include="Localization\**\*.hjson" /> -->
+		<LocalizationFiles Include="Localization\en-US\Mods.TerrariaOverhaul.hjson" />
+		<LocalizationFiles Include="Localization\en-US\Mods.TerrariaOverhaul.Configuration.hjson" />
+
+		<Compile Remove="Old\**" />
+		<Compile Remove="lib\**" />
+		<Compile Remove="BuildTools\**" />
+		<EmbeddedResource Remove="Old\**" />
+		<EmbeddedResource Remove="lib\**" />
+		<EmbeddedResource Remove="BuildTools\**" />
+		<None Remove="Old\**" />
+		<None Remove="lib\**" />
+		<None Remove="BuildTools\**" />
+		<None Remove="**\*.png" />
+		<None Remove="**\*.ogg" />
+		<None Remove="**\*.ase" />
+
+		<!-- Weirdly, without this a bunch of files appear in VS regardless of being excluded from all other groups -->
+		<AdditionalFiles Remove="**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Assets\" />
+	</ItemGroup>
+
+	<!-- Generate localization statistics -->
+	<Target Name="UpdateLocalizationFiles" BeforeTargets="BeforeCompile" DependsOnTargets="InvokeCustomTasks">
+		<!-- Obsolete since 1.4.4 TML -->
+		<!--
+		<Message Text="Synchronizing localization files..." Importance="high" />
+		<SynchronizeLocalizationFiles MainFile="Localization\en-US.hjson" LocalizationFiles="@(LocalizationFiles)" />
+		-->
+
+		<Message Text="Generating localization statistics..." Importance="high" />
+		<GenerateLocalizationStats ResultsOutputPath="Localization\README.md" MainCulture="en-US" LocalizationFiles="@(LocalizationFiles)" />
+	</Target>
+
+</Project>
