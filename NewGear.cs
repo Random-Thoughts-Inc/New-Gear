@@ -2,9 +2,9 @@
 
 namespace NewGear
 {
-    public partial class NewGear : Mod
+    public partial class DemonCustomCurrency : Mod
 	{
-		public const string AssetPath = $"{nameof(NewGear)}/Assets/";
+		public const string AssetPath = $"{nameof(DemonCustomCurrency)}/Assets/";
 
 		public override void Load() {
 			// The Load() method can be used for loading content and assets, but for organization reasons it is recommended that you instead use ModSystem/ModType/ILoadable Load() hooks.

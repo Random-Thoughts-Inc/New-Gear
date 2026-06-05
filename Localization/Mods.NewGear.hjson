@@ -1,0 +1,10 @@
+Mods: {
+	NewGear: {
+		Items: {
+			DemonCoinItem: {
+				DisplayName: Demon Coin
+				Tooltip: This coin radiates demonic energy.
+			}
+		}
+	}
+}
